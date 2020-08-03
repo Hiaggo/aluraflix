@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import SlickSlider from 'react-slick';
@@ -37,7 +38,7 @@ export const SliderItem = styled.li`
     object-fit: cover;
   }
 
-  .zoom {
+  /* .zoom {
     padding: 50px;
     background-color: green;
     transition: transform .2s;
@@ -47,9 +48,8 @@ export const SliderItem = styled.li`
   }
   .zoom:hover {
     transform: scale(1.5); 
-  }
+  } */
 `;
-
 
 const Slider = ({ children }) => (
   <Container>
@@ -67,4 +67,4 @@ const Slider = ({ children }) => (
   </Container>
 );
 
-export default Slider; 
+export default Slider;

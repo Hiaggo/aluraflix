@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
   const valorInicial = {
@@ -11,23 +12,10 @@ function CadastroCategoria() {
     text: '',
     cor: '',
   };
+
+  const { handleChange, values, setValues } = useForm(valorInicial);
+
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valorInicial);
-
-  function setValue(key, value) {
-    setValues({
-      ...values,
-      [key]: value,
-    });
-  }
-
-  function handleChange(infoDigitada) {
-    const { value } = infoDigitada.target;
-    setValue(
-      infoDigitada.target.getAttribute('data'),
-      value,
-    );
-  }
 
   useEffect(() => {
     const URL = window.location.href.includes('localhost')
@@ -64,7 +52,7 @@ function CadastroCategoria() {
       }}
       >
         <FormField
-          label="Nome da Categoria: "
+          label="Nome da Categoria "
           type="text"
           data="titulo"
           value={values.titulo}
@@ -72,7 +60,7 @@ function CadastroCategoria() {
         />
 
         <FormField
-          label="Descrição: "
+          label="Descrição "
           type="textarea"
           data="descricao"
           value={values.descricao}
